@@ -1,0 +1,74 @@
+#network {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: $network-width;
+  border-left: 5px solid $color-border;
+  display: flex;
+  flex-direction: column;
+
+  h2.request {
+    background-color: $color-request;
+  }
+
+  h2.response {
+    background-color: #7f8c8d;
+
+    &.is-success {
+      background-color: $color-response-success;
+    }
+
+    &.is-fail {
+      background-color: $color-response-fail;
+    }
+  }
+}
+
+@media (min-width: $network-breakpoint) {
+  #network {
+    width: $network-width-large;
+  }
+}
+
+#request, #response {
+  position: relative;
+  background-color: #f5f2f0;
+
+  .is-empty {
+    padding: 20px;
+    color: #690;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-shadow: 0 1px white;
+  }
+}
+
+#request {
+  flex: 1;
+}
+
+#response {
+  flex: 2;
+}
+
+.network-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.request-settings {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 14px;
+
+  label {
+    display: flex;
+    align-items: center;
+  }
+}

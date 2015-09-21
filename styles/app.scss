@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+pre {
+  margin: 0 !important;
+}
+
+@import '_variables';
+@import 'vendors/_prism';
+
+#content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: $menu-width;
+  right: $network-width;
+  overflow-y: auto;
+}
+
+@media (min-width: $network-breakpoint) {
+  #content {
+    right: $network-width-large;
+  }
+}
+
+h2 {
+  color: $color-light;
+  margin: 0;
+  padding: 10px;
+  font-size: 30px;
+}
+
+@import '_forms';
+@import '_action';
+@import '_menu';
+@import '_content';
+@import '_network';

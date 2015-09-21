@@ -1,0 +1,13 @@
+export {default as Addons} from './addons';
+export {default as Application} from './application';
+export {default as Audio} from './audio';
+export {default as Files} from './files';
+export {default as Gui} from './gui';
+export {default as Input} from './input';
+export {default as Jsonrpc} from './jsonrpc';
+export {default as Kodi} from './kodi';
+export {default as Player} from './player';
+export {default as Playlist} from './playlist';
+export {default as Pvr} from './pvr';
+export {default as System} from './system';
+export {default as Video} from './video';

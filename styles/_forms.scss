@@ -1,0 +1,26 @@
+.field {
+  display: flex;
+  padding: 10px;
+}
+
+.field-label {
+  display: inline-block;
+  min-width: 150px;
+  font-weight: bold;
+}
+
+.field-input {
+  display: inline-block;
+  flex: 1;
+}
+
+input[type=text], input[type=number], input[type=password] {
+  border-radius: 5px;
+  padding: 5px 10px;
+  border: 1px solid #bdc3c7;
+  width: 100%;
+}
+
+label {
+  cursor: pointer;
+}

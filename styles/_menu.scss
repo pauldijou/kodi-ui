@@ -1,0 +1,36 @@
+#menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: $menu-width;
+  background-color: $color-menu;
+  color: $color-light;
+  border-right: 5px solid $color-border;
+
+  h2 {
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    font-size: 30px;
+    border-bottom: 2px solid $color-border;
+  }
+
+  a, a:visited, a:active {
+    color: #ddd;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 22px;
+    text-decoration: none;
+  }
+
+  a {
+    display: block;
+    padding: 10px;
+    border-bottom: 2px solid $color-border;
+  }
+
+  a:hover {
+    background-color: $color-menu-hover;
+  }
+}
