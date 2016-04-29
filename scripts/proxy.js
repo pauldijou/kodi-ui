@@ -12,7 +12,7 @@ export default function proxy(url, options) {
       };
 
       if (response.ok) {
-        return response.json().then((json)=> {
+        return response.clone().json().then((json)=> {
           setResponse({
             ...infos,
             body: json
@@ -20,7 +20,7 @@ export default function proxy(url, options) {
           return response;
         });
       } else {
-        return response.text().then((text)=> {
+        return response.clone().text().then((text)=> {
           setResponse({
             ...infos,
             body: text,

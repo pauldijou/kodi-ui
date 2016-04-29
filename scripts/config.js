@@ -1,6 +1,6 @@
 import Kodi from 'kodi-js';
 import immupdate from 'immupdate';
-import { setKodi, setSettings, setUI } from './store/actions';
+import { setKodi, setSettings, setUI, addNotification, removeNotification } from './store/actions';
 import * as services from './services';
 import { Storage } from './services';
 import proxy from './proxy';
@@ -10,14 +10,29 @@ const localUI = new Storage.Item('kodi-ui-ui');
 
 const config = {};
 
+function notify(data) {
+  if (data.notification) {
+    addNotification(data.notification);
+    setTimeout(()=> {
+      removeNotification(data.notification);
+    }, 5000);
+  } else {
+    console.log('WS', data.event, data.message || data.error)
+  }
+}
+
 function kodiOptions () {
   return {
-    address: 'http://' + config.settings.ip,
-    port: config.settings.port,
+    address: config.settings.ip,
+    port: {
+      http: config.settings.port.http,
+      tcp: config.settings.port.tcp
+    },
     username: config.settings.username,
     password: config.settings.password,
     method: config.settings.method,
-    fetch: proxy
+    fetch: proxy,
+    notify
   }
 }
 

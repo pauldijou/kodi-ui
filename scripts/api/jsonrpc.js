@@ -3,6 +3,14 @@ import { connect } from 'react-redux';
 import { Action } from '../components';
 
 export default connect((state)=> ({kodi: state.kodi}))(React.createClass({
+  paramsNotifyAll (params) {
+    try {
+      params[2] = JSON.parse(params[2]);
+    } catch (e) {}
+
+    return params;
+  },
+
   render () {
     const jsonrpc = this.props.kodi.jsonrpc;
     console.log(jsonrpc);
@@ -12,7 +20,7 @@ export default connect((state)=> ({kodi: state.kodi}))(React.createClass({
       <Action label='Introspect' action={jsonrpc.introspect}>
 
       </Action>
-      <Action label='Notify All' action={jsonrpc.notifyAll}>
+      <Action label='Notify All' action={jsonrpc.notifyAll} params={this.paramsNotifyAll}>
         <div><input type='text' key='arg0' placeholder='Sender' /></div>
         <div><input type='text' key='arg1' placeholder='Message' /></div>
         <div><input type='text' key='arg2' placeholder='Data' /></div>

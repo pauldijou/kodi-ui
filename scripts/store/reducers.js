@@ -26,10 +26,27 @@ const kodiReducer = createReducer({
   [actions.setKodi]: (state, kodi)=> kodi
 }, false);
 
+const notificationsReducer = createReducer({
+  [actions.addNotification]: (state, notif)=> {
+    const notifs = state.slice(state.length >= 5 ? 1 : 0);
+    notifs.push(notif);
+    return notifs;
+  },
+  [actions.removeNotification]: (state, notif)=> {
+    const idx = state.indexOf(notif);
+    if (idx >= 0) {
+      return state.slice(idx + 1);
+    } else {
+      return state;
+    }
+  }
+}, []);
+
 export default combineReducers({
   settings: settingsReducer,
   ui: uiReducer,
   request: requestReducer,
   response: responseReducer,
-  kodi: kodiReducer
+  kodi: kodiReducer,
+  notifications: notificationsReducer
 });

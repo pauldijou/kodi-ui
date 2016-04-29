@@ -1,6 +1,7 @@
 import React from 'react';
 import Menu from './menu';
 import Network from './network';
+import Notifications from './notifications';
 
 export default React.createClass({
   render () {
@@ -10,6 +11,7 @@ export default React.createClass({
         <div id='content'>{this.props.children}</div>
         <Network />
       </div>
+      <Notifications />
     </div>);
   }
 });

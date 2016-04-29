@@ -11,7 +11,7 @@ export default React.createClass({
   extractArgs () {
     return Object.keys(this.refs).sort().map((ref)=> {
       const input = this.refs[ref];
-      if (input.type === 'number') {
+      if (input.type === 'number' || input.dataset.parse === 'number') {
         return (input.value !== undefined && input.value !== '') ? parseInt(input.value, 10) : input.value;
       } else if (input.type === 'checkbox') {
         return input.checked;

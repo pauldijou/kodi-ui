@@ -25,9 +25,9 @@ export default connect((state)=> ({kodi: state.kodi}))(React.createClass({
       </Action>
       <Action label='Get Properties' action={gui.getProperties}>
         <div>
-          <select key='arg0' multiple={true} defaultValue={this.props.kodi.types.gui.property}>
+          <select key='arg0' multiple={true} defaultValue={this.props.kodi.types.gui.property.name}>
             <option disabled>Properties</option>
-            { this.props.kodi.types.gui.property.map(p=> <option key={p} value={p}>{p}</option>) }
+            { this.props.kodi.types.gui.property.name.map(p=> <option key={p} value={p}>{p}</option>) }
           </select>
         </div>
       </Action>

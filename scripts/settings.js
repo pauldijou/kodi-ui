@@ -6,7 +6,10 @@ export default React.createClass({
   save () {
     const data = {
       ip: this.refs.ip.value,
-      port: this.refs.port.value,
+      port: {
+        http: this.refs.http.value,
+        tcp: this.refs.tcp.value
+      },
       username: this.refs.username.value,
       password: this.refs.password.value,
       method: this.refs.method.value
@@ -22,8 +25,9 @@ export default React.createClass({
   render () {
     return (<div>
       <h2>Settings</h2>
-      <Field label='IP'><input ref='ip' type='text' defaultValue={config.settings.ip} onChange={this.handleChange} /></Field>
-      <Field label='Port'><input ref='port' type='text' defaultValue={config.settings.port} onChange={this.handleChange} /></Field>
+      <Field label='IP'><input ref='ip' type='text' defaultValue={config.settings.ip || 'localhost'} onChange={this.handleChange} /></Field>
+      <Field label='Port HTTP'><input ref='http' type='text' defaultValue={config.settings.port.http || '8080'} onChange={this.handleChange} /></Field>
+      <Field label='Port TCP'><input ref='tcp' type='text' defaultValue={config.settings.port.tcp || '9090'} onChange={this.handleChange} /></Field>
       <Field label='Username'><input ref='username' type='text' defaultValue={config.settings.username} onChange={this.handleChange} /></Field>
       <Field label='Password'><input ref='password' type='password' defaultValue={config.settings.password} onChange={this.handleChange} /></Field>
       <Field label='RPC Method'>

@@ -5,3 +5,5 @@ export const setUI = createAction('Set UI config');
 export const setRequest = createAction('Set request');
 export const setResponse = createAction('Set response');
 export const setKodi = createAction('Update Kodi API');
+export const addNotification = createAction('Add notification');
+export const removeNotification = createAction('Remove notification');
